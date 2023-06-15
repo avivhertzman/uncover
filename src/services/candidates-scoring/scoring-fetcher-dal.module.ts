@@ -1,4 +1,4 @@
-import { ResembleServiceModule } from "src/api/scoring/resembleFetcher.module";
+import { ResembleServiceModule } from "src/api/scoring/resemble-fetcher.module";
 import { Module } from '@nestjs/common';
 
 @Module({

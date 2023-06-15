@@ -1,5 +1,5 @@
 import { Module, Res } from '@nestjs/common';
-import { IScoringFetcherDal } from '../../core/abstract/IScoringFetcherDal.service';
+import { IScoringFetcherDal } from '../../core/abstract/scoring-fetcher-dal.service';
 
 import { ResembleFetcher } from './resembleFetcher.service';
 

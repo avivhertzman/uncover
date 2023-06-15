@@ -1,1 +1,1 @@
-export * from "./IScoringFetcherDal.service";
+export * from "./scoring-fetcher-dal.service";

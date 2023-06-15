@@ -1,15 +1,14 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
-import { AppService } from '../app.service';
-import { CreateUsersDto } from '../core/dto/index';
-import { ImpersonatorsScoringManager } from 'src/services/impersonators-scoring';
+import { Controller, Post, Body } from '@nestjs/common';
+import { UsersDto } from '../core/dto/index';
+import { CandidatesScoringManager } from 'src/services/candidates-scoring';
 import { ScoringResponse } from 'src/core/dto/scoring-response.dto';
 
 @Controller('api/impersonators')
 export class ImpersonatorsController {
-  constructor(private impersonatorsScoringManager: ImpersonatorsScoringManager) { }
+  constructor(private candidatesScoringManager: CandidatesScoringManager) { }
 
   @Post()
-  async getHello(@Body() usersDto: CreateUsersDto): Promise<ScoringResponse[]> {
-    return (await this.impersonatorsScoringManager.getSortedImpersonators(usersDto));
+  async getImpersonators(@Body() usersDto: UsersDto): Promise<ScoringResponse[]> {
+    return await this.candidatesScoringManager.getCandidatesScoring(usersDto);
   }
 }
