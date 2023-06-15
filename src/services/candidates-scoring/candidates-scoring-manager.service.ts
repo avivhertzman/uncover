@@ -1,8 +1,8 @@
 import { Injectable, HttpException, HttpStatus } from "@nestjs/common";
-import { IScoringFetcherDal } from "src/core/abstract/scoring-fetcher-dal.service";
-import { UsersDto } from "src/core/dto/users.dto";
-import { ScoringResponse } from "src/core/dto/scoring-response.dto";
-import { ImageFetcher } from "src/api/image/image-fetcher.service";
+import { IScoringFetcherDal } from "../../core/abstract/scoring-fetcher-dal.service"
+import { UsersDto } from "../../core/dto/users.dto";
+import { ScoringResponse } from "../../core/dto/scoring-response.dto";
+import { ImageFetcher } from "../../api/image/image-fetcher.service";
 import * as log from 'log-to-file';
 
 const ERROR_LOG_FILE = 'logging.log';
@@ -22,7 +22,7 @@ export class CandidatesScoringManager {
 
         return this.getScoringList(users.candidates, userBuffer);
     }
-    
+
     private async getScoringList(candidates, userBuffer) {
         var scoring: ScoringResponse[] = [];
 
