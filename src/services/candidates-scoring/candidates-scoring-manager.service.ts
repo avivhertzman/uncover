@@ -4,6 +4,7 @@ import { UsersDto } from "../../core/dto/users.dto";
 import { ScoringResponse } from "../../core/dto/scoring-response.dto";
 import { ImageFetcher } from "../../api/image/image-fetcher.service";
 import * as log from 'log-to-file';
+import { Person } from "src/core";
 
 const ERROR_LOG_FILE = 'logging.log';
 
@@ -39,7 +40,7 @@ export class CandidatesScoringManager {
         return scoring;
     }
 
-    private async getCandidateScore(can, userBuffer) {
+    private async getCandidateScore(can: Person, userBuffer: Buffer) {
         let candidatAsBuffer: Buffer = await this.imageFetcher.getBuffer(can.profile_pic_url_hd);
         return await this.scoringFetcher.getScoring(candidatAsBuffer, userBuffer);
     }
